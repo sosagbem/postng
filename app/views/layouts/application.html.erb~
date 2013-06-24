@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+ 		 <title><%= (@title)? ("#{@title} ") : ("PostNg - Listing")  %></title>
+  		<%= stylesheet_link_tag "token-input-facebook", "application", :media => "all" %>
+  		<%= javascript_include_tag "jquery-tokeninput", "application" %>
+  		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<%= render 'layouts/header'%>
+		<div class="container">
+			<% flash.each do |name, msg| %>
+				  <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+				    <a class="close" data-dismiss="alert">×</a>
+				    <%= msg %>
+				  </div>
+			<% end %>
+			<%= yield %>
+		</div>		
+		<section class="footer">
+		 <%= render 'layouts/footer'%></div>
+		</section>
+	</body>
+</html>
+
+
